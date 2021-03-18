@@ -14,11 +14,13 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Double prize;
+    private Double price;
 
     @Column(name = "CREATE_AT")
     @Temporal(TemporalType.DATE)
     private Date dateAt;
+    @Transient
+    private Integer port;
 
 
     /**
@@ -40,12 +42,12 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public Double getPrize() {
-        return prize;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrize(Double prize) {
-        this.prize = prize;
+    public void setPrice(Double prize) {
+        this.price = prize;
     }
 
     public Date getDateAt() {
@@ -54,5 +56,13 @@ public class Product implements Serializable {
 
     public void setDateAt(Date dateAt) {
         this.dateAt = dateAt;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
     }
 }
